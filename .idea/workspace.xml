@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6c1e86ea-9831-4a49-8264-abbce5534eac" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+    <list default="true" id="6c1e86ea-9831-4a49-8264-abbce5534eac" name="Default" comment="Git ignore">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/battle.iml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/session.data" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Factory/BaseFactory.php" afterPath="$PROJECT_DIR$/Factory/BaseFactory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Factory/ShowCli.php" afterPath="$PROJECT_DIR$/Factory/ShowCli.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Factory/StartCli.php" afterPath="$PROJECT_DIR$/Factory/StartCli.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -86,8 +82,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+            <state relative-caret-position="0">
+              <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -317,12 +313,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1494571803294</updated>
-      <workItem from="1494571804606" duration="10289000" />
+      <workItem from="1494571804606" duration="10355000" />
     </task>
+    <task id="LOCAL-00001" summary="Git ignore">
+      <created>1494586333147</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1494586333147</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10289000" />
+    <option name="totallyTimeSpent" value="10355000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
@@ -355,6 +359,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Git ignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Git ignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -587,8 +595,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+        <state relative-caret-position="0">
+          <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
           <folding />
         </state>
       </provider>
