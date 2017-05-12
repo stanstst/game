@@ -18,9 +18,7 @@ class StartCli extends BaseFactory
     public function create()
     {
         $controller =
-            new Start(new GridFieldInitializer($this->getGrid(),
-                new Ship(),
-                new CliPersistor()),
+            new Start($this->getGridInitializer(),
                 new GridPlay(new PointStatusDisplayerPlay()));
 
         return $controller;
