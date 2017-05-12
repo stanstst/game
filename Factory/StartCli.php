@@ -3,15 +3,11 @@
 namespace Factory;
 
 use Controller\Start;
-use Model\GridFieldInitializer;
-use Model\Ship;
-use Model\Utility\CliPersistor;
 use View\Cli\GridPlay;
 use View\PointStatusDisplayerPlay;
 
 class StartCli extends BaseFactory
 {
-
     /**
      * @return Start
      */
@@ -23,6 +19,4 @@ class StartCli extends BaseFactory
 
         return $controller;
     }
-
-
 }

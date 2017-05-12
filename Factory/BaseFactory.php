@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Factory;
-
 
 use Model\GridFieldInitializer;
 use Model\Ship;

@@ -40,5 +40,4 @@ class Start implements IController
         $this->view->pushData($this->gridField->getGrid());
         $this->view->display();
     }
-
 }

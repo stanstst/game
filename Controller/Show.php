@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Controller;
 
 use Exception;
@@ -44,5 +43,4 @@ class Show
         $this->view->pushData($this->gridField->getGrid());
         $this->view->display();
     }
-
 }
