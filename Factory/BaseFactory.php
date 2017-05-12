@@ -16,21 +16,29 @@ use Model\Utility\WebPersistor;
 abstract class BaseFactory
 {
     private $environment;
+    private $config;
 
     public abstract function create();
 
     /**
      * BaseFactory constructor.
      * @param $environment
+     * @param $config
      */
-    public function __construct($environment)
+    public function __construct($environment, $config)
     {
         $this->environment = $environment;
+        $this->config = $config;
     }
 
-    public static function instance($environment)
+    /**
+     * @param $environment
+     * @param $config
+     * @return static
+     */
+    public static function instance($environment, $config)
     {
-        return new static($environment);
+        return new static($environment, $config);
     }
 
     /**
@@ -50,7 +58,7 @@ abstract class BaseFactory
     {
         return new GridFieldInitializer($this->getGrid(),
             new Ship(),
-            $this->getPersistor());
+            $this->getPersistor(), $this->config['initialShips']);
     }
 
     /**

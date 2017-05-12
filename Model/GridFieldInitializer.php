@@ -9,12 +9,6 @@ class GridFieldInitializer
 {
     /**
      *
-     * @var GridField
-     */
-    protected $gridField;
-
-    /**
-     *
      * @var SquareGrid
      */
     protected $grid;
@@ -30,13 +24,21 @@ class GridFieldInitializer
      */
     protected $persistor;
 
-    protected $shipStartList = [4, 3, 2, 2];
+    protected $shipStartList = [];
 
-    public function __construct(SquareGrid $grid, Ship $shipPrototype, Persistor $persistor)
+    /**
+     * GridFieldInitializer constructor.
+     * @param SquareGrid $grid
+     * @param Ship $shipPrototype
+     * @param Persistor $persistor
+     * @param $shipStartList
+     */
+    public function __construct(SquareGrid $grid, Ship $shipPrototype, Persistor $persistor, $shipStartList)
     {
         $this->grid = $grid;
         $this->shipPrototype = $shipPrototype;
         $this->persistor = $persistor;
+        $this->shipStartList = $shipStartList;
     }
 
     /**
@@ -68,5 +70,4 @@ class GridFieldInitializer
     {
         return $this->grid;
     }
-
 }
