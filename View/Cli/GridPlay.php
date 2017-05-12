@@ -6,7 +6,6 @@ use View\BaseView;
 
 class GridPlay extends BaseView
 {
-
     /**
      *
      * @var \View\PointStatusDisplayerPlay
@@ -47,5 +46,4 @@ class GridPlay extends BaseView
         }
         return $content;
     }
-
 }
