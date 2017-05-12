@@ -7,7 +7,6 @@ use Model\Utility\PointStatus;
 
 class SquareGrid
 {
-
     const SIZE = 10;
     const START_INDEX = 0;
 
@@ -54,11 +53,13 @@ class SquareGrid
     protected $userHitStatus;
 
     /**
+     * @var array
+     */
+    protected $allocatedShips = [];
+    /**
      * @var bool
      */
-    protected $isSunk = fase;
-
-    protected $allocatedShips = [];
+    private $isSunkHit = false;
 
     /**
      * @param AllocatorGenerator $allocator
@@ -96,16 +97,16 @@ class SquareGrid
 
     public function hitPoint(Utility\Position $point)
     {
-        var_dump($this->allocatedShips);
         /** @var PointStatus $pointStatus */
         $pointStatus = $this->data[$point->x][$point->y];
         $this->userHitStatus = '';
 
         if ($pointStatus->isShip() && !$pointStatus->isHit()) {
             $pointStatus->setHit();
+            $this->hitAllocatedShip($point);
             $this->userTries++;
             $this->userHits++;
-            $this->userHitStatus = 'hit';
+            $this->userHitStatus = $this->isSunkHit? 'Sunk vessel' : 'hit';
         } elseif (!$pointStatus->isMiss() && !$pointStatus->isHit()) {
             $pointStatus->setMiss();
             $this->userTries++;
@@ -167,12 +168,12 @@ class SquareGrid
      */
     public function isSunk()
     {
-        return $this->isSunk;
+        return $this->isSunkHit;
     }
 
     public function addAllocatedShip($shipNumber, $x, $y)
     {
-        $this->allocatedShips[$shipNumber][$this->getXyKeyForAllocatedShip($x, $y)] = 'not-hit';
+        $this->allocatedShips[$shipNumber][$this->getXyKeyForAllocatedShip($x, $y)] = false;
     }
 
     /**
@@ -180,9 +181,22 @@ class SquareGrid
      * @param $y
      * @return string
      */
-    protected function getXyKeyForAllocatedShip($x, $y)
+    private function getXyKeyForAllocatedShip($x, $y)
     {
         return $x . '-' . $y;
+    }
+
+    private function hitAllocatedShip($point)
+    {
+        foreach ($this->allocatedShips as &$ship) {
+            if (array_key_exists($this->getXyKeyForAllocatedShip($point->x, $point->y), $ship)){
+                $ship[$this->getXyKeyForAllocatedShip($point->x, $point->y)] = true;
+                $this->isSunkHit = true;
+                foreach ($ship as $shipPointState) {
+                    $this->isSunkHit = $this->isSunkHit && $shipPointState;
+                }
+            }
+        }
     }
 
 }
