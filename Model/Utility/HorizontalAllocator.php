@@ -36,11 +36,13 @@ class HorizontalAllocator extends BaseAllocator
         if ($level > self::MAX_NUMBER_PLACE_TRIES) {
             throw new \Exception('Game not created. Please try again.');
         }
-        $isClear = $this->isClearSpace($position);
-        if ($isClear) {
+        if ($this->isClearSpace($position)) {
+
             for ($n = $position->y; $n <= $this->getSternOnGrid($position); $n++) {
                 $this->grid->getIterator()[$position->x][$n]->setShip();
+                $this->grid->addAllocatedShip(static::$allocatedShipsNumber, $position->x, $n);
             }
+            static::$allocatedShipsNumber++;
             $this->grid->addOccupiedPoints($this->ship->getSize());
         } else {
             $this->placeShip($position, ++$level);

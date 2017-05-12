@@ -22,6 +22,11 @@ abstract class BaseAllocator implements Allocator
     protected $ship;
 
     /**
+     * @var int
+     */
+    protected static $allocatedShipsNumber = 0;
+
+    /**
      *
      * @param integer $level
      */

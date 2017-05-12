@@ -54,6 +54,13 @@ class SquareGrid
     protected $userHitStatus;
 
     /**
+     * @var bool
+     */
+    protected $isSunk = fase;
+
+    protected $allocatedShips = [];
+
+    /**
      * @param AllocatorGenerator $allocator
      * @param PointStatus $pointStatus
      */
@@ -64,7 +71,7 @@ class SquareGrid
         $this->intData();
         $this->userTries = self::START_INDEX;
         $this->userHits = self::START_INDEX;
-        $this->occupiedPoints = self::START_INDEX;
+        $this->occupiedPoints = 0;
     }
 
     protected function intData()
@@ -89,7 +96,7 @@ class SquareGrid
 
     public function hitPoint(Utility\Position $point)
     {
-
+        var_dump($this->allocatedShips);
         /** @var PointStatus $pointStatus */
         $pointStatus = $this->data[$point->x][$point->y];
         $this->userHitStatus = '';
@@ -153,6 +160,29 @@ class SquareGrid
     public function addOccupiedPoints($n)
     {
         return $this->occupiedPoints += $n;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function isSunk()
+    {
+        return $this->isSunk;
+    }
+
+    public function addAllocatedShip($shipNumber, $x, $y)
+    {
+        $this->allocatedShips[$shipNumber][$this->getXyKeyForAllocatedShip($x, $y)] = 'not-hit';
+    }
+
+    /**
+     * @param $x
+     * @param $y
+     * @return string
+     */
+    protected function getXyKeyForAllocatedShip($x, $y)
+    {
+        return $x . '-' . $y;
     }
 
 }

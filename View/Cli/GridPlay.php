@@ -2,7 +2,9 @@
 
 namespace View\Cli;
 
-class GridPlay extends \View\BaseView
+use View\BaseView;
+
+class GridPlay extends BaseView
 {
 
     /**

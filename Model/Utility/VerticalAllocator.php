@@ -28,11 +28,12 @@ class VerticalAllocator extends BaseAllocator
         if ($level > self::MAX_NUMBER_PLACE_TRIES) {
             throw new \Exception('Game not created. Please try again.');
         }
-        $isClear = $this->isClearSpace($position);
-        if ($isClear) {
+        if ($this->isClearSpace($position)) {
             for ($n = $position->x; $n <= $this->getSternOnGrid($position); $n++) {
                 $this->grid->getIterator()[$n][$position->y]->setShip();
+                $this->grid->addAllocatedShip(static::$allocatedShipsNumber, $n, $position->y);
             }
+            static::$allocatedShipsNumber++;
             $this->grid->addOccupiedPoints($this->ship->getSize());
         } else {
             $this->placeShip($position, ++$level);
