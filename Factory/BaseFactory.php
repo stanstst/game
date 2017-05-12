@@ -8,16 +8,29 @@ use Model\SquareGrid;
 use Model\Utility\AllocatorGenerator;
 use Model\Utility\CliPersistor;
 use Model\Utility\HorizontalAllocator;
+use Model\Utility\Persistor;
 use Model\Utility\PointStatus;
 use Model\Utility\VerticalAllocator;
+use Model\Utility\WebPersistor;
 
 abstract class BaseFactory
 {
+    private $environment;
+
     public abstract function create();
 
-    public static function instance()
+    /**
+     * BaseFactory constructor.
+     * @param $environment
+     */
+    public function __construct($environment)
     {
-        return new static();
+        $this->environment = $environment;
+    }
+
+    public static function instance($environment)
+    {
+        return new static($environment);
     }
 
     /**
@@ -37,6 +50,17 @@ abstract class BaseFactory
     {
         return new GridFieldInitializer($this->getGrid(),
             new Ship(),
-            new CliPersistor());
+            $this->getPersistor());
+    }
+
+    /**
+     * @return Persistor
+     */
+    protected function getPersistor()
+    {
+        if ($this->environment === 'cli') {
+            return new CliPersistor();
+        }
+        return new WebPersistor();
     }
 }

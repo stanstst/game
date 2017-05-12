@@ -61,11 +61,11 @@ class GridPlay extends BaseView
             $content .= '<br />';
         }
         $content .= '</pre><br />';
-        $content .= '<form action="/?playGame-execute" method="post">';
+        $content .= '<form action="/?play" method="post">';
         $content .= '<input name="point" type="text" autofocus /><br />';
-        $content .= '<input type="submit"/>';
+        $content .= '<input type="submit" value="Fire"/>';
         $content .= '</form><br />';
-        $content .= '<a href="/?showGame-execute" target="_blank">Show ships</a>';
+        $content .= '<a href="/?show" target="_blank">Show ships</a>';
         $content .= '<br /><br /><a href="/" >New Game</a>';
         return $content;
     }
