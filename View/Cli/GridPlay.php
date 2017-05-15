@@ -30,7 +30,7 @@ class GridPlay extends BaseView
     {
         $content = '' . PHP_EOL;
         $content .= ($this->grid->getUserHits() == $this->grid->getOccupiedPoints()) ?
-            'Congrats! You have won!' . PHP_EOL . PHP_EOL : '';
+            'Well done! You completed the game in ' . $this->grid->getTries() . ' shots' . PHP_EOL . PHP_EOL : '';
         $content .= '*** ' . $this->grid->getHitStatus() . ' ***' . PHP_EOL;
         $content .= $this->hasError() ?
             PHP_EOL . 'Error: ' . $this->getError() . PHP_EOL : '';
