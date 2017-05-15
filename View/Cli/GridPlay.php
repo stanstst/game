@@ -28,11 +28,10 @@ class GridPlay extends BaseView
 
     protected function getContent()
     {
-        $content = 'Play Game' . PHP_EOL;
+        $content = '' . PHP_EOL;
         $content .= ($this->grid->getUserHits() == $this->grid->getOccupiedPoints()) ?
             'Congrats! You have won!' . PHP_EOL . PHP_EOL : '';
-        $content .= 'Number trys: ' . $this->grid->getTries();
-        $content .= ', Hit status: ' . $this->grid->getHitStatus() . PHP_EOL;
+        $content .= '*** ' . $this->grid->getHitStatus() . ' ***' . PHP_EOL;
         $content .= $this->hasError() ?
             PHP_EOL . 'Error: ' . $this->getError() . PHP_EOL : '';
         $content .= '   1    2    3    4    5    6    7    8    9    10' . PHP_EOL;

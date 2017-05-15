@@ -43,10 +43,9 @@ class GridPlay extends BaseView
 
     protected function getHtmlContent()
     {
-        $content = 'Play Game<br />';
+        $content = '';
         $content .= ($this->grid->getUserHits() == $this->grid->getOccupiedPoints()) ?
-            'Congrats! You have won!<br />' : '';
-        $content .= 'Number trys: ' . $this->grid->getTries();
+            'Well done! You completed the game in ' . $this->grid->getTries() . ' shots<br />' : '';
         $content .= ', Hit status: ' . $this->grid->getHitStatus() . '<br />';
         $content .= $this->hasError() ?
             '<p>Error: ' . $this->getError() . '</p>' : '';
