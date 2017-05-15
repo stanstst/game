@@ -4,7 +4,7 @@ namespace Factory;
 
 use Controller\Play;
 use Model\GridFieldHitter;
-use Model\Utility\CliPersistor;
+use Model\Utility\CliInMemoryPersistor;
 use Model\Utility\InputValidator;
 use Model\Utility\Position;
 use Request\Cli;
@@ -17,7 +17,7 @@ class PlayCli extends BaseFactory
     {
         $grid = $this->getGrid();
         $controller =
-            new Play(new GridFieldHitter($grid, new CliPersistor(), new InputValidator($grid, new Position())),
+            new Play(new GridFieldHitter($grid, new CliInMemoryPersistor(), new InputValidator($grid, new Position())),
                 new GridPlay(new PointStatusDisplayerPlay()),
                 new Cli());
         return $controller;

@@ -6,7 +6,7 @@ use Model\GridFieldInitializer;
 use Model\Ship;
 use Model\SquareGrid;
 use Model\Utility\AllocatorGenerator;
-use Model\Utility\CliPersistor;
+use Model\Utility\CliInMemoryPersistor;
 use Model\Utility\HorizontalAllocator;
 use Model\Utility\Persistor;
 use Model\Utility\PointStatus;
@@ -67,7 +67,7 @@ abstract class BaseFactory
     protected function getPersistor()
     {
         if ($this->environment === 'cli') {
-            return new CliPersistor();
+            return new CliInMemoryPersistor();
         }
         return new WebPersistor();
     }
