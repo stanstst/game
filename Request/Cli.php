@@ -12,8 +12,8 @@ class Cli implements UserRequest
 
     public function getByKey($key)
     {
-        global $argv;
-        return isset($argv[2]) ? $argv[2] : null;
+        global $userInput;
+        return $userInput;
     }
 
 }

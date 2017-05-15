@@ -1,9 +1,11 @@
 <?php
-define('PROJECT_ROOT_DIR', __DIR__);
 
-// Ensure basic class auto-loading
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'Utils/Autoader.php';
-spl_autoload_register(__NAMESPACE__ . '\Utils\Autoader::load');
+if (!defined('PROJECT_ROOT_DIR')) {
+    define('PROJECT_ROOT_DIR', __DIR__);
+    // Ensure basic class auto-loading
+    require_once __DIR__ . DIRECTORY_SEPARATOR . 'Utils/Autoader.php';
+    spl_autoload_register(__NAMESPACE__ . '\Utils\Autoader::load');
+}
 
 // Running app
 try {
@@ -23,6 +25,6 @@ try {
     $controller->execute();
 
 } catch (Exception $exception) {
-    echo $exception->getMessage();
+    echo $exception->getMessage() . ($environment === 'cli' ? PHP_EOL : '');
 }
 
