@@ -34,7 +34,7 @@ class GridPlay extends BaseView
         $content .= '*** ' . $this->grid->getHitStatus() . ' ***' . PHP_EOL;
         $content .= $this->hasError() ?
             PHP_EOL . 'Error: ' . $this->getError() . PHP_EOL : '';
-        $content .= '   1    2    3    4    5    6    7    8    9    10' . PHP_EOL;
+        $content .= '  1  2  3  4  5  6  7  8  9  10' . PHP_EOL;
         $counterAscii = 65;
         foreach ($this->grid->getIterator() as $c => $column) {
             $content .= chr($counterAscii++);

@@ -43,7 +43,7 @@ class GridShow extends BaseView
         $content .= $this->hasError() ?
             '<p>Error: ' . $this->getError() . '</p>' : '';
         $content .= '<pre>';
-        $content .= '   1    2    3    4    5    6    7    8    9    10' . '<br />';
+        $content .= '  1  2  3  4  5  6  7  8  9  10' . '<br />';
         $counterAscii = 65;
         foreach ($this->grid->getIterator() as $c => $row) {
             $content .= chr($counterAscii++);

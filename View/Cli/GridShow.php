@@ -33,10 +33,10 @@ class GridShow extends \View\BaseView
         $content .= ($this->grid->getUserHits() == $this->grid->getOccupiedPoints()) ?
             'Congrats! You have won!' . PHP_EOL . PHP_EOL : '';
 
-        $content .= 'Number trys: ' . $this->grid->getTries() . PHP_EOL . PHP_EOL;
+        $content .= 'Number tries: ' . $this->grid->getTries() . PHP_EOL . PHP_EOL;
         $content .= $this->hasError() ?
             PHP_EOL . 'Error: ' . $this->getError() . PHP_EOL : '';
-        $content .= '   1    2    3    4    5    6    7    8    9    10' . PHP_EOL;
+        $content .= '  1  2  3  4  5  6  7  8  9  10' . PHP_EOL;
         $counterAscii = 65;
         foreach ($this->grid->getIterator() as $c => $row) {
             $content .= chr($counterAscii++);
