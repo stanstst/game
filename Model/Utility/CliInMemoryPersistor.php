@@ -10,7 +10,6 @@ class CliInMemoryPersistor implements Persistor
 
     public function persist($object, $key)
     {
-        var_dump($object);
         static::$data[$key] = $object;
     }
 
