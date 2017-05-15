@@ -46,7 +46,7 @@ class GridPlay extends BaseView
         $content = '';
         $content .= ($this->grid->getUserHits() == $this->grid->getOccupiedPoints()) ?
             'Well done! You completed the game in ' . $this->grid->getTries() . ' shots<br />' : '';
-        $content .= ', Hit status: ' . $this->grid->getHitStatus() . '<br />';
+        $content .= '*** ' . $this->grid->getHitStatus() . '*** ' . '<br />';
         $content .= $this->hasError() ?
             '<p>Error: ' . $this->getError() . '</p>' : '';
         $content .= '<pre>';
