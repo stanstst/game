@@ -39,4 +39,12 @@ abstract class BaseView implements MvcView
         $this->grid = $grid;
     }
 
+    /**
+     * @return bool
+     */
+    protected function hasUserWon()
+    {
+        return ($this->grid->getUserHits() == $this->grid->getOccupiedPoints());
+    }
+
 }

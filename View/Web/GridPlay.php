@@ -44,7 +44,7 @@ class GridPlay extends BaseView
     protected function getHtmlContent()
     {
         $content = '';
-        $content .= ($this->grid->getUserHits() == $this->grid->getOccupiedPoints()) ?
+        $content .= $this->hasUserWon() ?
             'Well done! You completed the game in ' . $this->grid->getTries() . ' shots<br />' : '';
         $content .= '*** ' . $this->grid->getHitStatus() . '*** ' . '<br />';
         $content .= $this->hasError() ?
@@ -60,11 +60,14 @@ class GridPlay extends BaseView
             $content .= '<br />';
         }
         $content .= '</pre><br />';
-        $content .= '<form action="/?play" method="post">';
-        $content .= '<input name="point" type="text" autofocus /><br />';
-        $content .= '<input type="submit" value="Fire"/>';
-        $content .= '</form><br />';
-        $content .= '<a href="/?show" target="_blank">Show ships</a>';
+        if (!$this->hasUserWon()) {
+            $content .= '<form action="/?play" method="post">';
+            $content .= '<input name="point" type="text" autofocus /><br />';
+            $content .= 'Enter coordinates (row, col), e.g. A5 <br />';
+            $content .= '<input type="submit" value="Fire"/>';
+            $content .= '</form><br />';
+            $content .= '<a href="/?show" target="_blank">Show ships</a>';
+        }
         $content .= '<br /><br /><a href="/" >New Game</a>';
         return $content;
     }

@@ -29,7 +29,7 @@ class GridPlay extends BaseView
     protected function getContent()
     {
         $content = '' . PHP_EOL;
-        $content .= ($this->grid->getUserHits() == $this->grid->getOccupiedPoints()) ?
+        $content .= $this->hasUserWon() ?
             'Well done! You completed the game in ' . $this->grid->getTries() . ' shots' . PHP_EOL . PHP_EOL : '';
         $content .= '*** ' . $this->grid->getHitStatus() . ' ***' . PHP_EOL;
         $content .= $this->hasError() ?

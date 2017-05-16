@@ -39,9 +39,7 @@ class GridShow extends BaseView
     protected function getHtmlContent()
     {
         $content = 'Show Game<br />';
-        $content .= 'Number of tries: ' . $this->grid->getTries() . '<br />';
-        $content .= $this->hasError() ?
-            '<p>Error: ' . $this->getError() . '</p>' : '';
+
         $content .= '<pre>';
         $content .= '  1  2  3  4  5  6  7  8  9  10' . '<br />';
         $counterAscii = 65;

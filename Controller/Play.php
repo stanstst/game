@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+use Exception;
 use Model\GridFieldHitter;
 use Request\UserRequest;
 use View\MvcView;
